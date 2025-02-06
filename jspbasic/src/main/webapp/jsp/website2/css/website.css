@@ -1,0 +1,298 @@
+/* 반응형 웹페이지 구현 */
+
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #58666e;
+    background-color: #f0f3f4;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjus: 100%;  /* iphone font size 변경 방지 */
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 10px 5px;
+}
+
+h1 { font-size: 1.8em; }
+
+#wrap {
+    width: 100%;
+    /* margin-top = header height */
+    margin-top: 60px;
+}
+
+/* Navigation bar */
+header {
+    /* for sticky header */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 2000;
+    background-color: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+header > a {
+    color: #333;
+}
+
+.logo {
+    display: inline-block;
+    line-height: 36px;
+    margin: 12px 0 12px 25px;
+    height: 36px;
+    font-size: 24px;
+    font-weight: bold;    
+}
+
+nav {
+    float: right;
+    margin-right: 10px;
+}
+
+.nav-items {
+    margin-right: 10px;
+}
+
+.nav-items > li {
+    display: inline-block; /* 가로정렬 */
+}
+
+.nav-items > li > a {
+    line-height: 60px; /* for Vertical Centering */
+    padding: 0 30px;   /* nav item간 간격 */
+    color: rgba(0,0,0,0.4);
+}
+
+.nav-items > li > a:hover {
+    color: rgba(0,0,0,0.8);
+}
+
+/* navigation icon for Mobile Layout */
+.navicon {
+    cursor: pointer;
+    height: 60px;
+    padding: 28px 15px;
+    position: absolute;
+    top: 0; right: 0;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+}
+
+/* nav icon의 내부 막대 */
+.navicon-bar {
+    background-color: #333;
+    display: block;
+    position: relative;
+    /* navigation icon animation */
+    transition: background-color .2s ease-out;
+    width: 20px;
+    height: 3px;
+}
+
+.navicon-bar::before,
+.navicon-bar::after {
+    background-color: #333;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    /* navigation icon animation */
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.navicon-bar::before {
+    top: -7px;
+}
+
+.navicon-bar::after {
+    top: 7px;
+}
+
+/* toggle navigation icon */
+.nav-toggle:checked ~ .navicon > .navicon-bar {
+    background: transparent;
+}
+
+.nav-toggle:checked ~ .navicon > .navicon-bar::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle:checked ~ .navicon > .navicon-bar::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+/* main banner */
+#mainbanner > p#mainbk {
+    margin-top: 75px;
+    margin-left: 10px;
+}
+
+#mainbanner > p#mainbk > a > img {
+    width: 100%;
+}
+
+/* contents */
+/* clearfix */
+#content-wrap:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+aside {
+    /* for fixed side bar */
+    position: fixed;
+    float: left;
+    margin-top: 10px;
+    left: 10px;
+    width: 200px;  /* 너비 고정 */
+    height: 360px;
+    padding-top: 25px;
+    background-color: #333;
+}
+
+/* aside navigation */
+aside > ul {
+    width: 200px;
+}
+
+aside > ul > li > a {
+    display: block;
+    color: #fff;
+    padding: 20px 0 20px 40px;
+}
+
+aside > ul > li > a.active {
+    background-color: #4CAF50;
+}
+
+aside > ul > li > a:hover:not(.active) {
+    background-color: #555;
+}
+
+aside > h1 {
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;    
+}
+
+/* Section */
+section {
+    float: right;
+    margin-left: 230px;  /*aside width*/
+}
+
+article {
+    width: 39%;
+    margin: 10px !important;
+    padding: 20px;
+    background-color: white;
+    float: left;
+}
+
+article:nth-of-type(2n) {
+    margin-left: 0;
+}
+
+article:nth-of-type(n+3) {
+    margin-top: 0;
+}
+
+/* footer */
+footer {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    padding: 0 25px;
+    line-height: 60px;
+    color: #8a8c8f;
+    border-top: 1px solid #dee5e7;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.navicon {
+    display: none;
+}
+
+/* Media Query */
+/* for tablet: ~ 800px */
+@media screen and (max-width: 800px) {
+    header {
+        height: 60px;
+        text-align: center;
+    }
+    nav {
+        float: none;
+    }
+    #wrap {
+        /* margin-top = header height */
+        margin-top: 120px;
+    }
+    aside {
+        display: none;
+    }
+    section {
+        width: 100%;
+    }
+    article {
+        width: 95%;
+    }
+}
+
+/* for smartphone: ~ 480px */
+@media screen and (max-width: 480px) {
+    header {
+        height: 60px;
+    }
+    .nav-items {
+        display: none;
+    }
+    .navicon {
+        display: block;
+    }
+    #wrap {
+        /* margin-top = header height */
+        margin-top: 60px;
+    }
+    aside {
+        display: none;
+    }
+    section {
+        padding: 10px;
+    }
+    /* View navigation item */
+    .nav-toggle:checked ~ .nav-items {
+        display: block;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+    }
+    .nav-items > li  {
+        display: block;
+    }
+    .nav-items > li > a {
+        line-height: 50px;
+    }
+}
+
