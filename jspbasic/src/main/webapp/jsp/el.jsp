@@ -119,7 +119,11 @@ ${greater = (i1, i2) -> i1>i2 ? "i1이 i2보다 큼" : "i1이 i2보다 크지 �
 ${greater(3,5)}<br>
 ${greater(5,3)}<br>
 
-<c:set var="nums" value="${[1, 2, 3, 4, 5]}" />
+<%
+	int[] intArr2 = {1, 2, 3, 4, 5};
+	pageContext.setAttribute("intArr2", intArr2);
+%>
+<c:set var="nums" value="${intArr2}" />
 <%-- 배열에서 스트림 추출 --%>
 ${nums.stream()}<br>
 ${nums.stream().filter(x -> x%2==0).toList()}<br>

@@ -82,7 +82,12 @@ forEach 반복문
 	반복회수 : <c:out value="${stat.count}" /><br><br>
 </c:forEach>
 
-<c:set var="arr" value="${[1, 2, 3, 4, 5]}" />
+<%
+	int[] intArr2 = {1, 2, 3, 4, 5};
+	pageContext.setAttribute("intArr2", intArr2);
+%>
+
+<c:set var="arr" value="${intArr2}" />
 <c:forEach var="ele" items="${arr}" varStatus="stat">
 	i변수 값 : <c:out value="${ele}" /><br>
 	반복인덱스 : <c:out value="${stat.index}" /><br>	
