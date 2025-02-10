@@ -35,8 +35,72 @@
   	<error-code>500</error-code>
   	<location>/jsp/error500.jsp</location>
   </error-page>
+  
+  <!-- LogginFilter setting -->
+  <filter>
+  	<filter-name>LoggingFilter</filter-name>
+  	<filter-class>jspbasic.filter.LoggingFilter</filter-class>
+  	<init-param>
+  		<param-name>name</param-name>
+  		<param-value>홍길동</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoggingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- EncodingFilter setting -->
+  <filter>
+  	<filter-name>EncodingFilter</filter-name>
+  	<filter-class>jspbasic.filter.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>EncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- ServletContextListener setting -->
+  <listener>
+  	<listener-class>jspbasic.listener.ApplicationListener</listener-class>
+  </listener>
+  
+  <!-- HttpSessionListener setting -->
+  <listener>
+  	<listener-class>jspbasic.listener.SessionListener</listener-class>
+  </listener>  
+  
+  <!-- ServletRequestListener setting -->
+  <listener>
+  	<listener-class>jspbasic.listener.RequestListener</listener-class>
+  </listener>
+  
+  <!-- ServletContextAttributeListener setting -->
+  <listener>
+  	<listener-class>jspbasic.listener.ApplicationAttributeListener</listener-class>
+  </listener>
+  
+  <!-- SessionAttributeListener setting -->
+  <listener>
+  	<listener-class>jspbasic.listener.SessAttributeListener</listener-class>
+  </listener>
     
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
