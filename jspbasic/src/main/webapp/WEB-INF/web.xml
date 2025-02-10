@@ -108,6 +108,26 @@
   	<servlet-name>FileuploadServlet</servlet-name>
   	<url-pattern>/fileupload</url-pattern>
   </servlet-mapping>
+  
+  <!-- filedownload servlet setting -->
+  <servlet>
+  	<servlet-name>FileDownloadServlet</servlet-name>
+  	<servlet-class>jspbasic.servlet.FileDownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FileDownloadServlet</servlet-name>
+  	<url-pattern>/filedownload</url-pattern>
+  </servlet-mapping>  
+  
+  <!-- sendmail servlet setting -->
+  <servlet>
+  	<servlet-name>SendmailServlet</servlet-name>
+  	<servlet-class>jspbasic.servlet.SendmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SendmailServlet</servlet-name>
+  	<url-pattern>/sendmail</url-pattern>
+  </servlet-mapping>    
     
 </web-app>
 
