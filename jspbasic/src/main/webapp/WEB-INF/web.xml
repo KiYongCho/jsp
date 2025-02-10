@@ -19,7 +19,7 @@
   
   <!-- session timeout setting -->
   <session-config>
-    <session-timeout>1</session-timeout>
+    <session-timeout>30</session-timeout>
   </session-config>
   
   <!-- error page setting -->
@@ -37,6 +37,7 @@
   </error-page>
   
   <!-- LogginFilter setting -->
+  <!-- 
   <filter>
   	<filter-name>LoggingFilter</filter-name>
   	<filter-class>jspbasic.filter.LoggingFilter</filter-class>
@@ -49,8 +50,10 @@
   	<filter-name>LoggingFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  -->
   
   <!-- EncodingFilter setting -->
+  <!-- 
   <filter>
   	<filter-name>EncodingFilter</filter-name>
   	<filter-class>jspbasic.filter.EncodingFilter</filter-class>
@@ -59,31 +62,52 @@
   	<filter-name>EncodingFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  -->
   
   <!-- ServletContextListener setting -->
+  <!-- 
   <listener>
   	<listener-class>jspbasic.listener.ApplicationListener</listener-class>
   </listener>
+   -->
   
   <!-- HttpSessionListener setting -->
+  <!-- 
   <listener>
   	<listener-class>jspbasic.listener.SessionListener</listener-class>
-  </listener>  
+  </listener>
+  -->  
   
   <!-- ServletRequestListener setting -->
+   <!--
   <listener>
   	<listener-class>jspbasic.listener.RequestListener</listener-class>
   </listener>
+  -->
   
   <!-- ServletContextAttributeListener setting -->
+  <!-- 
   <listener>
   	<listener-class>jspbasic.listener.ApplicationAttributeListener</listener-class>
   </listener>
+   -->
   
   <!-- SessionAttributeListener setting -->
+  <!--
   <listener>
   	<listener-class>jspbasic.listener.SessAttributeListener</listener-class>
   </listener>
+  -->
+  
+  <!-- fileupload servlet setting -->
+  <servlet>
+  	<servlet-name>FileuploadServlet</servlet-name>
+  	<servlet-class>jspbasic.servlet.FileuploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FileuploadServlet</servlet-name>
+  	<url-pattern>/fileupload</url-pattern>
+  </servlet-mapping>
     
 </web-app>
 
